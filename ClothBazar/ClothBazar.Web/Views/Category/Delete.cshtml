@@ -1,0 +1,13 @@
+﻿@model ClothBazar.Entities.Category
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<h4>Are you sure you want to delete @Model.Name?</h4>
+
+<form method="post">
+    <button class="btn btn-secondary">Delete</button>
+    @Html.ActionLink("Back","Index")
+</form>
+

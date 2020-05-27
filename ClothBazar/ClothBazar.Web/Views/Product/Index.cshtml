@@ -1,0 +1,35 @@
+﻿@model List<ClothBazar.Entities.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Product  List</h2>
+
+@Html.ActionLink("Add Product", "Create")
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { Id = @item.Id }) |
+                    @Html.ActionLink("Edit", "Edit", new { Id = @item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { Id = @item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

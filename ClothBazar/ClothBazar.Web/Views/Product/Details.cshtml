@@ -1,0 +1,21 @@
+﻿@model ClothBazar.Entities.Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Product Details</h2>
+
+<table class="table">
+    <tr>
+        <th>Product Name</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Product Description</th>
+        <td>@Model.Description</td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Back","Index")</td>
+    </tr>
+</table>
+
