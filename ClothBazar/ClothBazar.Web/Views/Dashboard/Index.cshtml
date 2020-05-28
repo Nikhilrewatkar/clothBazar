@@ -1,7 +1,48 @@
-﻿
+﻿@model ClothBazar.Web.ViewModels.DashboardViewModel
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Dashboard</h2>
+<style>
+.card .content {
+    text-align: center;
+}
+
+.card .content h6 {
+    color: #808080;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card {
+    transition: 0.3s ease;
+    cursor:pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);
+}
+
+</style>
+<h2>Top Categories</h2>
+
+<br />
+
+<div class="row">
+    @foreach (var item in Model.Categories)
+    {
+        <div class="col-md-3">
+            <div class="card">
+                <img src="@item.ImageUrl" />
+                <div class="content">
+                    <h6>@item.Name</h6>
+                </div>
+            </div>
+        </div>
+    }
+</div>
 

@@ -6,25 +6,38 @@
 
 <h2>Edit Category</h2>
 
-<form method="post" autocomplete="off">
-    <div class="form-group">
-        <label>Category Name</label>
-        <input type="text" name="Name" value="@Model.Name" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Category Description</label>
-        <input type="text" name="Description" value="@Model.Description" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Category Image</label>
-        <input type="file" name="ImageUrl" value="@Model.ImageUrl" class="form-control" />
-    </div>
-    <br />
-    <br />
 
-    <button class="btn btn-secondary">Update Category</button>
-    @Html.ActionLink("Back", "Index")
-</form>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" autocomplete="off">
+            <div class="form-group">
+                <label>Category Name</label>
+                <input type="text" name="Name" value="@Model.Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Category Description</label>
+                <input type="text" name="Description" value="@Model.Description" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Upload New Image</label>
+                <input id="ImageUrl" name="ImageUrl" type="hidden" />
+                <input id="imageUpload" type="file" name="Image" selected="@Model.ImageUrl" class="form-control" />
+            </div>
+            <br />
+            <br />
+            <button class="btn btn-secondary">Update Category</button>
+            @Html.ActionLink("Back", "Index")
+        </form>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="width:200px">
+            <img id="categoryImage" src="@Model.ImageUrl" width="100%" />
+        </div>
+    </div>
+</div>
+
+
+
 
 
 

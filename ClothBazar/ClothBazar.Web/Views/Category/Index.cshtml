@@ -4,46 +4,36 @@
     ViewBag.Title = "Index";
 }
 
-<style>
-  .card .content{
-      text-align:center;
-  }
+<h2>Category  List</h2>
 
-  .card .content h2{
-      font-weight: 700;
-      font-size: 30px;
-      color: #808080;
-  }
-
-  .card{
-      transition:0.3s ease;
-  }
-  .card:hover{
-       transform: translateY(-10px);
-  }
-</style>
-
-<h2>Category List</h2>
-
-@Html.ActionLink("Add Category","Create")
+@Html.ActionLink("Add Category", "Create")
 <br />
 <br />
 
-
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-4">
-            <div class="card">
-                <img src="@item.ImageUrl" />
-                <div class="content">
-                    <h2>@item.Name</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Category Description</th>
+            <th>Category Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>
+                    <img src="@item.ImageUrl" width="80px" height="auto" />
+                </td>
+                <td>
                     @Html.ActionLink("Details", "Details", new { Id = @item.Id }) |
                     @Html.ActionLink("Edit", "Edit", new { Id = @item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { Id = @item.Id })
-                </div>
-            </div>
-        </div>
-    }
-</div>
-
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

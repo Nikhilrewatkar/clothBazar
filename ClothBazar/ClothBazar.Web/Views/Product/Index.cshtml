@@ -15,6 +15,7 @@
         <tr>
             <th>Product Name</th>
             <th>Product Description</th>
+            <th>Product Category</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -24,6 +25,7 @@
             <tr>
                 <td>@item.Name</td>
                 <td>@item.Description</td>
+                <td>@item.Category.Name</td>
                 <td>
                     @Html.ActionLink("Details", "Details", new { Id = @item.Id }) |
                     @Html.ActionLink("Edit", "Edit", new { Id = @item.Id }) |

@@ -16,7 +16,7 @@ namespace ClothBazar.Services
         //List of Products
         public List<Product> getProducts()
         {
-            return context.Products.ToList();
+            return context.Products.Include(x=>x.Category).ToList();
         }
 
 
@@ -30,6 +30,7 @@ namespace ClothBazar.Services
         //Add new Category
         public void saveProduct(Product product)
         {
+            context.Entry(product.Category).State = EntityState.Unchanged;
             context.Products.Add(product);
             context.SaveChanges();
         }

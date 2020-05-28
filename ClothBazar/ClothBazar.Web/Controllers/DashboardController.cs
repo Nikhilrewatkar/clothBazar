@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClothBazar.Services;
+using ClothBazar.Web.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,14 @@ namespace ClothBazar.Web.Controllers
 {
     public class DashboardController : Controller
     {
+
+        CategoriesService categoryService = new CategoriesService();
         // GET: Dashboard
         public ActionResult Index()
         {
-            return View();
+            DashboardViewModel model = new DashboardViewModel();
+            model.Categories = categoryService.getCategories();
+            return View(model);
         }
     }
 }

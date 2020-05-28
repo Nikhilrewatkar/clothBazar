@@ -60,8 +60,6 @@
 
         })
    .done(function (response) {
-       console.log(response)
-
        if (response.Success) {
            $("#ImageUrl").val(response.ImageUrl);
            $("#categoryImage").attr("src", response.ImageUrl);
